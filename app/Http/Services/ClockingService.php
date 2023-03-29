@@ -11,11 +11,8 @@ class ClockingService
 {
     public function clock(Checkpoint $checkpoint, array $clockingData)
     {
-        $startTime = now()->setTime(0, 0);
-        $endTime = now()->setTime(23, 59, 59);
         $previousClockingDate =
-            $checkpoint->clockings()->whereDate("clock_at", ">=", $startTime)
-                ->whereDate("clock_at", "<=", $endTime)->first();
+            $checkpoint->clockings()->clockedToday()->first();
 
         if ($previousClockingDate == null) {
             $currentClockingDate = $checkpoint->clockings()->create([

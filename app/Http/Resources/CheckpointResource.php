@@ -18,7 +18,8 @@ class CheckpointResource extends JsonResource
             "id" => $this->id,
             "site_id" => $this->site_id,
             "name" => $this->name,
-            "checkpoint_no" => $this->checkpoint_no
+            "checkpoint_no" => $this->checkpoint_no,
+            "is_clocked_today" => $this->is_clocked_today
         ];
     }
 }

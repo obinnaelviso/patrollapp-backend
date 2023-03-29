@@ -31,6 +31,12 @@ class Checkpoint extends Model implements HasMedia
         return $this->getFirstMediaUrl($this->mediaCollectionName());
     }
 
+    public function getIsClockedTodayAttribute(): bool
+    {
+
+        return ($this->clockings()->clockedToday()->count() > 0);
+    }
+
     public function mediaCollectionName(): string
     {
         return Str::slug($this->site->securityGuard->user->name);
