@@ -29,7 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('{site}/checkpoints', CheckpointController::class . '@index');
 
-    Route::post('{checkpoint}/clock', ClockingController::class . '@clock');
+    Route::post('{checkpoint:checkpoint_no}/clock', ClockingController::class . '@clock');
 
     Route::post('/logout', LoginController::class . '@logout');
 });
