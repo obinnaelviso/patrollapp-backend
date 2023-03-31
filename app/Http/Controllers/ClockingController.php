@@ -17,9 +17,8 @@ class ClockingController extends Controller
     {
         $request->validate([
             "clock_at" => "required",
-            "data" => "required",
-            "data.latitude" => "required",
-            "data.longitude" => "required"
+            "latitude" => "required",
+            "longitude" => "required"
         ]);
         $clocking = $this->clockingService->clock($checkpoint, $request->all());
         if ($clocking == null) {

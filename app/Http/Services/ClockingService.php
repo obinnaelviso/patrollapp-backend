@@ -16,7 +16,10 @@ class ClockingService
 
         if ($previousClockingDate == null) {
             $currentClockingDate = $checkpoint->clockings()->create([
-                "data" => $clockingData["data"],
+                "data" => [
+                    "latitude" => $clockingData["latitude"],
+                    "longitude" => $clockingData["longitude"]
+                ],
                 "clock_at" => Carbon::parse($clockingData["clock_at"])
             ]);
             return new ClockingResource($currentClockingDate);
